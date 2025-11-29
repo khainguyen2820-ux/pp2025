@@ -18,18 +18,19 @@ for _ in range(number_of_student):
 for _ in range(number_of_course):
     course_id = input("enter course id:")
     course_name = input("enter course name:")
-
     course[course_id] = {
         "course_name" : course_name,
     }
 
-course_id = input("enter course id to mark:")
-if course_id in course:
-    for id in student:
-        mark = float(input("enter mark for student {id}:"))
-        mark[id][course_id] = mark
-else:
-    print("no course found")
+while True:
+    course_id = input("enter course id to mark:")
+    if course_id in course:
+        for id in student:
+            mark = float(input(f"enter mark for student {id}:"))
+            mark[course_id][id] = mark
+        break
+    else:
+        print(f"no course {course_id} found")
 
 print(student)
 print(course)
